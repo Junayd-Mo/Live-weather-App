@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Weather App</title>
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Live Weather App</h1>
+    <div class="container">
+      <div class="card">
+        <form action="{{url_for('city')}}" method="POST">
+          <input type="text" name="city" />
+          <button>Enter</button>
+        </form>
+        <div class="main">
+          <div class="upper">
+            <h1 class="city">{{city_name}} {{city}}</h1>
+            <h1 class="temp">{{temp}}°C</h1>
+            <p class="description">{{description}}</p>
+          </div>
+
+          <div class="lower">
+            <div class="box">
+              <h2 class="box-title">Humidity(%)</h2>
+
+              <p>{{humid}}</p>
+            </div>
+
+            <div class="box">
+              <h2 class="box-title">Wind Speed(km/hr)</h2>
+
+              <p>{{wind}}</p>
+            </div>
+
+            <div class="box">
+              <h2 class="box-title">Visibility(Meters)</h2>
+              <p>{{visible}}</p>
+            </div>
+
+            <div class="box">
+              <h2 class="box-title">High and Low temp</h2>
+              <div class="high-low">
+                <p class="high">H:{{temp_max}}°C</p>
+                <p class="low">L:{{temp_min}}°C</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
